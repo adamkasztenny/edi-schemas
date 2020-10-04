@@ -7,3 +7,6 @@ Using this, an EDI generator or parser can be written in any programming languag
 ## Structure
 Under each folder, there will be a JSON file prefixed with `records` which contains the segment definitions. The other files
 contain the definitions for the actual message types.
+
+## Regenerating the schemas
+Run `make generate`. Note that you need Node.js installed and it can only be run on Linux/Unix.
