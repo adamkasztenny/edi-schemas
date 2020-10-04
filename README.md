@@ -1,4 +1,4 @@
-# edi-schemas
+# EDI Schemas
 Schemas for X12 and EDIFACT as JSON.
 
 These were converted using a [script](./generate-schemas.sh) from the [BOTS EDI translator grammars](https://github.com/bots-edi/bots-grammars).
