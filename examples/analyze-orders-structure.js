@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const groupDefinitions = JSON.parse(fs.readFileSync('../x12/4010/records004010.json', 'utf8'));
-const schemaFor850 = JSON.parse(fs.readFileSync('../x12/4010/850004010.json', 'utf8'));
+const groupDefinitions = JSON.parse(fs.readFileSync('../edifact/D96A/recordsD96AUN.json', 'utf8'));
+const schemaForOrders = JSON.parse(fs.readFileSync('../edifact/D96A/ORDERSD96AUN.json', 'utf8'));
 
 function analyzeSegments(segments, indentation) {
     segments.forEach(segment => {
@@ -10,7 +10,11 @@ function analyzeSegments(segments, indentation) {
         const type = segment[3];
 
         if (id !== 'BOTSID') {
-            console.log(indentation, id, 'Type: ', type, mandatory ? 'mandatory' : 'conditional');
+            if (id[0] === 'C' || id[0] === 'S') {
+                console.log(indentation, id, mandatory ? 'mandatory' : 'conditional');
+            } else {
+                console.log(indentation, id, 'Type: ', type, mandatory ? 'mandatory' : 'conditional');
+            }
         }
     });
     console.log('\n');
@@ -32,4 +36,4 @@ function analyzeGroups(groups, indentation) {
     });
 }
 
-analyzeGroups(schemaFor850, '');
+analyzeGroups(schemaForOrders, '');
