@@ -48,6 +48,8 @@ function convert() {
 git clone https://github.com/bots-edi/bots-grammars
 cd bots-grammars
 
+rm "x12/5011/X12.Segment"
+
 convert "x12"
 convert "edifact"
 
