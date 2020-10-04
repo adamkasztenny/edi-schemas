@@ -1,0 +1,13 @@
+{
+  "name": "edi-schema-examples",
+  "version": "1.0.0",
+  "description": "Examples using EDI Schemas",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL v3",
+  "devDependencies": {
+    "eslint": "^7.10.0"
+  }
+}
