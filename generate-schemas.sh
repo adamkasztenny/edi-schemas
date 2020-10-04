@@ -45,10 +45,24 @@ function convert() {
 	cd ..
 }
 
+function close_python_list_and_dictionary() {
+	file=$1
+	echo "]}]" >> $file
+}
+
+function fix_irregular_data() {
+	rm "./x12/5011/X12.Segment"
+	close_python_list_and_dictionary "./x12/3040/272003040.py"
+	close_python_list_and_dictionary "./x12/3040/837003040.py"
+	close_python_list_and_dictionary "./x12/3050/837003050.py"
+	close_python_list_and_dictionary "./x12/3050/404003050.py"
+	close_python_list_and_dictionary "./x12/3050/417003050.py"
+}
+
 git clone https://github.com/bots-edi/bots-grammars
 cd bots-grammars
 
-rm "x12/5011/X12.Segment"
+fix_irregular_data
 
 convert "x12"
 convert "edifact"
