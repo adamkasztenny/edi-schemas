@@ -6,7 +6,7 @@ const schemaForOrders = JSON.parse(fs.readFileSync('../edifact/D96A/ORDERSD96AUN
 function analyzeSegments(segments, indentation) {
     segments.forEach(segment => {
         const id = segment[0];
-        const mandatory = segment[1] == 'M';
+        const mandatory = segment[1] === 'M';
         const type = segment[3];
 
         if (id !== 'BOTSID') {

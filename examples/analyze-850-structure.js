@@ -6,7 +6,7 @@ const schemaFor850 = JSON.parse(fs.readFileSync('../x12/4010/850004010.json', 'u
 function analyzeSegments(segments, indentation) {
     segments.forEach(segment => {
         const id = segment[0];
-        const mandatory = segment[1] == 'M';
+        const mandatory = segment[1] === 'M';
         const type = segment[3];
 
         if (id !== 'BOTSID') {
